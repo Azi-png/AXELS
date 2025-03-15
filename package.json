@@ -13,9 +13,11 @@
   "author": "MIT",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "moment": "^2.29.4"
   },
   "devDependencies": {
+    "@types/node": "^22.13.10",
     "nodemon": "^3.0.2",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
