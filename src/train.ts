@@ -11,9 +11,9 @@ Project standarts:
 
  -Error handling   
 
-
-
-
+ Traditional API
+ Rst API
+ GraphQL Api
 
 
 H2-TASK: 
