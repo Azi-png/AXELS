@@ -1,5 +1,22 @@
 console.log("Hello world");
-/*H2-TASK: 
+
+/*
+Project standarts:
+-Logging 
+-Naming:
+    -function, method,variable (camel)
+    -class (paskal)
+    -folder (kebab)
+    -css (snake)
+
+ -Error handling   
+
+
+
+
+
+
+H2-TASK: 
 
 Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
 MASALAN: getDigits("m14i1t") return qiladi "141"*/
