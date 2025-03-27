@@ -10,7 +10,7 @@ routerAdmin
   .post("/login", restaurantController.processLogin);
 routerAdmin
   .get("/signup", restaurantController.getSignup)
-  .post("/signup", restaurantController.processSignup);
+  .post("/signup", restaurantController.processSignup); // () deb qoysak funksiya ishga tushib ketadi biz faqat yonalish beropmiz
 
 /* Product */
 
