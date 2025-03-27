@@ -1,22 +1,37 @@
 console.log("Hello world");
+/*TASK J:
 
-function majorityElement(arr: number[]): number {
-  let obj: Record<number, number> = {};
-  let maxElem: number = arr[0];
+Shunday function tuzing, u string qabul qilsin.
+Va string ichidagi eng uzun so'zni qaytarsin.
 
-  for (let i = 0; i < arr.length; i++) {
-    let num: number = arr[i];
-    obj[num] = (obj[num] || 0) + 1;
-    if (obj[num] > obj[maxElem]) {
-      maxElem = num;
-    }
-  }
+MASALAN: findLongestWord("I came from Uzbekistan!"); return "Uzbekistan!"
 
-  return maxElem;
+Yuqoridagi text tarkibida 'Uzbekistan'
+eng uzun so'z bo'lganligi uchun 'Uzbekistan'ni qaytarmoqda */
+
+function findLongestWord(str: string): string {
+  return str.split(" ").sort((a, b) => b.length - a.length)[0];
 }
 
-// Test
-console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); // Output: 4
+console.log(findLongestWord("I came from Uzbekistan!"));
+
+// function majorityElement(arr: number[]): number {
+//   let obj: Record<number, number> = {};
+//   let maxElem: number = arr[0];
+
+//   for (let i = 0; i < arr.length; i++) {
+//     let num: number = arr[i];
+//     obj[num] = (obj[num] || 0) + 1;
+//     if (obj[num] > obj[maxElem]) {
+//       maxElem = num;
+//     }
+//   }
+
+//   return maxElem;
+// }
+
+// // Test
+// console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); // Output: 4
 
 /*
 Project standarts:
