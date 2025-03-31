@@ -6,6 +6,7 @@ import morgan from "morgan";
 import { MORGAN_FORMAT } from "./libs/config";
 import session from "express-session"; // session yaratadi
 import ConnectMongoDB from "connect-mongodb-session"; //sessionlarni dbga saqlaydi
+import { T } from "./libs/types/common";
 
 const MongoDBStore = ConnectMongoDB(session); // "connect-mongodb-session" ichida ConnectMongoDB funksiyasi bor unga  "express-session"ni argument sifatida pass qilib MongoDBStore ga tenglaymiz.
 /* ConnectMongoDB(session) – klassni qaytaruvchi funksiya. Bu funksiya express-session bilan ishlay oladigan MongoDB sessiya do‘konini yaratadi.
@@ -35,7 +36,11 @@ app.use(
     saveUninitialized: true,
   })
 );
-
+app.use(function (req, res, next) {
+  const sessionInstance = req.session as T;
+  res.locals.member = sessionInstance.member;
+  next();
+});
 // 3.Views
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
