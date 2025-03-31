@@ -4,11 +4,13 @@ import router from "./router";
 import routerAdmin from "./router-admin";
 import morgan from "morgan";
 import { MORGAN_FORMAT } from "./libs/config";
-import session from "express-session";
-import MongoDB from "connect-mongodb-session";
-import ConnectMongoDB from "connect-mongodb-session";
+import session from "express-session"; // session yaratadi
+import ConnectMongoDB from "connect-mongodb-session"; //sessionlarni dbga saqlaydi
 
-const MongoDBStore = ConnectMongoDB(session);
+const MongoDBStore = ConnectMongoDB(session); // "connect-mongodb-session" ichida ConnectMongoDB funksiyasi bor unga  "express-session"ni argument sifatida pass qilib MongoDBStore ga tenglaymiz.
+/* ConnectMongoDB(session) – klassni qaytaruvchi funksiya. Bu funksiya express-session bilan ishlay oladigan MongoDB sessiya do‘konini yaratadi.
+Natijada MongoDBStore o‘zgaruvchisi hosil bo‘ladi
+Endi MongoDBStore connect-mongodb-session orqali sessiyalarni MongoDB'da saqlovchi maxsus obyekt bo‘lib xizmat qiladi.*/
 const store = new MongoDBStore({
   uri: String(process.env.MONGO_URL),
   collection: "sessions",
