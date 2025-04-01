@@ -1,6 +1,27 @@
-console.log("Hello world");
+console.log("Hello world"); /** */
+/** TASK L:
 
-/*TASK K:
+So'zlarni ketma - ketligini buzmasdan har bir so'zni
+alohida teskarisiga o'girib beradigan fucntion tuzing.
+Funtion yagona string qabul qilsin
+
+MASALAN: reverseSentence("we like coding!") return "ew ekil !gnidoc";
+Qaytayotgan natijaga e'tibor bersangiz, so'zlar joyi o'zgarmasdan turgan o'rnida teskarisiga o'girilmoqda*/
+function reverseSentence(str: string): string {
+  return str
+    .split(" ")
+    .map((word) => word.split("").reverse().join(""))
+    .join(" ");
+}
+
+console.log(reverseSentence("we like coding!")); // "ew ekil !gnidoc"
+
+/*
+
+
+TASK K:
+
+
 
 Berilayotgan parametr tarkibida nechta unli harf bor
 ekanligini aniqlovchi function tuzing
@@ -10,12 +31,12 @@ MASALAN: countVowels("string"); return 1
 Yuqoridagi misolda 'string' so'zi tarkibida yagona unli harf 'i'
 bo'lganligi uchun '1'ni qaytarmoqda */
 
-function countVowels(str: string): number {
-  return str.split(/[aeiou]/gi).length - 1;
-}
+// function countVowels(str: string): number {
+//   return str.split(/[aeiou]/gi).length - 1;
+// }
 
-console.log(countVowels("string"));
-console.log(countVowels("Aaaaaaaaaa"));
+// console.log(countVowels("string"));
+// console.log(countVowels("Aaaaaaaaaa"));
 
 /*TASK J:
 
