@@ -26,7 +26,7 @@ class ProductService {
       return await this.productModel.create(input);
     } catch (err) {
       console.error(" Erorr, model:createNewProduct", err);
-      throw new Errors(HttpCode.BAD_REQUEST, Message.USED_NICK_PHONE);
+      throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
     }
   }
 

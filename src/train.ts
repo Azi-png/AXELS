@@ -7,14 +7,15 @@ va array ichidagi har bir raqam uchun raqamning o'zi va hamda o'sha raqamni kvad
 tashkil topgan object hosil qilib, hosil bo'lgan objectlarni array ichida qaytarsin
 
 MASALAN: MASALAN: getSquareNumbers([1, 2, 3]) return [{ number: 1, square: 1 }, { number: 2, square: 4 }, { number: 3, square: 9 }]; */
-function getSquareNumbers(arr: number[]): { number: number; square: number }[] {
-  return arr.map((num) => ({
+function getSquareNumbers(
+  array: number[]
+): { number: number; square: number }[] {
+  return array.map((num) => ({
     number: num,
     square: num * num,
   }));
 }
 
-// Misol uchun chaqirib ko'ramiz
 console.log(getSquareNumbers([1, 2, 3]));
 
 /** TASK L:
