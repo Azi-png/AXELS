@@ -1,4 +1,21 @@
-console.log("Hello world"); /** */ /** */
+console.log("Hello world"); /** */ /** */ /** */ /** */
+/** function palindromCheck(word: string): boolean {
+  const reversed = word.split('').reverse().join('');
+  return word === reversed;
+}
+
+// Misollar:
+console.log(palindromCheck("dad")); // true
+console.log(palindromCheck("son")); // false
+*/
+function palindromCheck(word: string): boolean {
+  const reversed = word.split("").reverse().join("");
+  return word === reversed;
+}
+
+// Misollar:
+console.log(palindromCheck("dad")); // true
+console.log(palindromCheck("son")); // false
 
 /**TASK M:
 
@@ -7,16 +24,16 @@ va array ichidagi har bir raqam uchun raqamning o'zi va hamda o'sha raqamni kvad
 tashkil topgan object hosil qilib, hosil bo'lgan objectlarni array ichida qaytarsin
 
 MASALAN: MASALAN: getSquareNumbers([1, 2, 3]) return [{ number: 1, square: 1 }, { number: 2, square: 4 }, { number: 3, square: 9 }]; */
-function getSquareNumbers(
-  array: number[]
-): { number: number; square: number }[] {
-  return array.map((num) => ({
-    number: num,
-    square: num * num,
-  }));
-}
+// function getSquareNumbers(
+//   array: number[]
+// ): { number: number; square: number }[] {
+//   return array.map((num) => ({
+//     number: num,
+//     square: num * num,
+//   }));
+// }
 
-console.log(getSquareNumbers([1, 2, 3]));
+// console.log(getSquareNumbers([1, 2, 3]));
 
 /** TASK L:
 
