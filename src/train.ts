@@ -1,4 +1,19 @@
-console.log("Hello world"); /** */
+console.log("Hello world");
+/**TASK R
+
+Shunday function yozing, u string parametrga ega bo'lsin.
+Agar argument sifatida berilayotgan string, "1 + 2" bo'lsa,
+string ichidagi sonlarin yig'indisni hisoblab, number holatida qaytarsin
+
+MASALAN: calculate("1 + 3"); return 4;
+1 + 3 = 4, shu sababli 4 natijani qaytarmoqda. */
+
+function calculate(str: string): number {
+  const [a, , b] = str.split(" ");
+  return Number(a) + Number(b);
+}
+console.log(calculate("5 + 3")); // 8
+
 /**TASK Q:
 
 Shunday function yozing, u 2 ta parametrga ega bo'lib
@@ -14,13 +29,13 @@ Ushbu misolda, ikkinchi argument sifatida berilayotgan 'year' objectning
 propertysida mavjud bo'lmaganligi uchun 'false' natijani qaytarmoqda.
  */
 
-function hasProperty(obj: any, prop: string): boolean {
-  return prop in obj;
-}
-const car = { name: "BMW", model: "M3" };
+// function hasProperty(obj: any, prop: string): boolean {
+//   return prop in obj;
+// }
+// const car = { name: "BMW", model: "M3" };
 
-console.log(hasProperty(car, "model"));
-console.log(hasProperty(car, "year"));
+// console.log(hasProperty(car, "model"));
+// console.log(hasProperty(car, "year"));
 
 /**TASK P:
 
