@@ -1,5 +1,32 @@
 console.log("Hello world");
-/** */ /** */ /** */ /** */
+/** */ /** */ /** */
+/** TASK V
+
+Shunday function yozing, uni string parametri bo'lsin.
+Va bu function stringdagi har bir harfni o'zi bilan
+necha marotaba taktorlanganligini ko'rsatuvchi object qaytarsin.
+  
+MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
+
+Yuqoridagi misolda, 'hello' so'zi tarkibida
+qatnashgan harflar necha marotaba takrorlangini bilan
+object sifatida qaytarilmoqda.*/
+function countChars(str: string): Record<string, number> {
+  let result: Record<string, number> = {};
+
+  str.split("").map((char) => {
+    if (result[char]) {
+      result[char] += 1;
+    } else {
+      result[char] = 1;
+    }
+  });
+
+  return result;
+}
+
+console.log(countChars("hello")); // {h: 1, e: 1, l: 2, o: 1}
+
 /**TASK U
 
 Shunday function tuzing, uni number parametri bo'lsin.
@@ -11,17 +38,17 @@ MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
 Yuqoridagi birinchi misolda, argument sifatida, 9 berilmoqda.
 Va 0'dan boshlab sanaganda 9'gacha 4'ta toq son mavjud. 
 Keyingi namunada ham xuddi shunday xolat takrorlanmoqda. */
-function sumOdds(number: number): number {
-  let count = 0;
-  for (let i = 0; i < number; i++) {
-    if (i % 2 !== 0) {
-      count++;
-    }
-  }
-  return count;
-}
-console.log(sumOdds(9));
-console.log(sumOdds(11));
+// function sumOdds(number: number): number {
+//   let count = 0;
+//   for (let i = 0; i < number; i++) {
+//     if (i % 2 !== 0) {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+// console.log(sumOdds(9));
+// console.log(sumOdds(11));
 /**TASK T
 
 Shunday function tuzing, u sonlardan tashkil topgan 2'ta array qabul qilsin.
