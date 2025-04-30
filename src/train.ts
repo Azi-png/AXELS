@@ -31,7 +31,7 @@ console.log(countChars("hello")); // {h: 1, e: 1, l: 2, o: 1}
 
 Shunday function tuzing, uni number parametri bo'lsin.
 Va bu function berilgan parametrgacha, 0'dan boshlab
-oraliqda nechta toq sonlar borligini aniqlab return qilsi.
+oraliqda nechta toq sonlar borligini aniqlab return  qilsi.
 
 MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
 
