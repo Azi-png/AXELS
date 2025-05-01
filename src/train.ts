@@ -1,5 +1,31 @@
 console.log("Hello world");
-/** */ /** */ /** */
+/** */ /** */
+/**TASK W
+
+Shunday function yozing, u o'ziga parametr sifatida
+yagona array va number qabul qilsin. Siz tuzgan function
+arrayni numberda berilgan uzunlikda kesib bo'laklarga
+ajratgan holatida qaytarsin.
+MASALAN: chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3);
+return [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]];
+
+Yuqoridagi namunada berilayotgan array ikkinchi parametr 3'ga
+asoslanib 3 bo'lakga bo'linib qaytmoqda. Qolgani esa o'z holati qolyapti; */
+function chunkArray<T>(array: T[], size: number): T[][] {
+  let result: T[][] = [];
+  let i: number = 0;
+
+  while (i < array.length) {
+    let chunk: T[] = array.slice(i, i + size);
+    result.push(chunk);
+    i += size;
+  }
+
+  return result;
+}
+const result = chunkArray([1, 2, 3, 4, 5, 6, 7], 3);
+console.log(result);
+
 /** TASK V
 
 Shunday function yozing, uni string parametri bo'lsin.
@@ -11,21 +37,21 @@ MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
 Yuqoridagi misolda, 'hello' so'zi tarkibida
 qatnashgan harflar necha marotaba takrorlangini bilan
 object sifatida qaytarilmoqda.*/
-function countChars(str: string): Record<string, number> {
-  let result: Record<string, number> = {};
+// function countChars(str: string): Record<string, number> {
+//   let result: Record<string, number> = {};
 
-  str.split("").map((char) => {
-    if (result[char]) {
-      result[char] += 1;
-    } else {
-      result[char] = 1;
-    }
-  });
+//   str.split("").map((char) => {
+//     if (result[char]) {
+//       result[char] += 1;
+//     } else {
+//       result[char] = 1;
+//     }
+//   });
 
-  return result;
-}
+//   return result;
+// }
 
-console.log(countChars("hello")); // {h: 1, e: 1, l: 2, o: 1}
+// console.log(countChars("hello"));
 
 /**TASK U
 
