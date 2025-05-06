@@ -12,12 +12,14 @@ import { shapeIntoMongooseObjectId } from "../libs/config";
 
 class MemberService {
   private readonly memberModel;
+  productModel: any;
 
   constructor() {
     this.memberModel = MemberModel;
   }
 
   /** SPA */
+
   public async getRestaurant(): Promise<Member> {
     const result = await this.memberModel
       .findOne({ memberType: MemberType.RESTAURANT })
@@ -132,6 +134,7 @@ class MemberService {
         { memberNick: 1, memberPassword: 1 }
       )
       .exec();
+    console.log(member);
     if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
 
     const isMatch = await bcrypt.compare(

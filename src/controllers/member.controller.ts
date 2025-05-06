@@ -143,7 +143,7 @@ memberController.verifyAuth = async (
   }
 };
 
-memberController.retriveAuth = async (
+memberController.retrieveAuth = async (
   req: ExtendedRequest,
   res: Response,
   next: NextFunction
