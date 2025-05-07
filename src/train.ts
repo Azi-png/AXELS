@@ -1,5 +1,34 @@
-console.log("Hello world");
-/** */ /** */ /** */ /** */ /** */ /** */
+console.log("Hello world"); /** */ /** */ /** */ /** */ /** */
+/**TASK Z
+
+Shunday function yozing. Bu function sonlardan iborat array
+qabul qilsin. Function'ning vazifasi array tarkibidagi juft
+sonlarni topib ularni yig'disini qaytarsin.
+
+MASALAN:
+sumEvens([1, 2, 3]); return 2;
+sumEvens([1, 2, 3, 2]); return 4;
+
+Yuqoridagi misolda, bizning funktsiya
+berilayotgan array tarkibidagi sonlar ichidan faqatgina juft bo'lgan
+sonlarni topib, ularni hisoblab yig'indisini qaytarmoqda. */
+
+function sumEvens(numbers: number[]): number {
+  let sum = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 === 0) {
+      sum += numbers[i];
+    }
+  }
+
+  return sum;
+}
+
+console.log(sumEvens([1, 2, 3]));
+console.log(sumEvens([1, 2, 3, 2]));
+console.log(sumEvens([10, 15, 20]));
+
 /**TASK Y
 
 Shunday function yozing, uni 2'ta array parametri bo'lsin.
@@ -13,22 +42,22 @@ o'xshash sonlar mavjud. Function'ning vazifasi esa ana shu
 ikkala array'da ishtirok etgan o'xshash sonlarni yagona arrayga
 joylab return qilmoqda. */
 
-function findIntersection(arr1: number[], arr2: number[]): number[] {
-  const result: number[] = [];
+// function findIntersection(arr1: number[], arr2: number[]): number[] {
+//   const result: number[] = [];
 
-  for (let i = 0; i < arr1.length; i++) {
-    const current: number = arr1[i];
+//   for (let i = 0; i < arr1.length; i++) {
+//     const current: number = arr1[i];
 
-    if (arr2.includes(current) && !result.includes(current)) {
-      result.push(current);
-    }
-  }
+//     if (arr2.includes(current) && !result.includes(current)) {
+//       result.push(current);
+//     }
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
-const result = findIntersection([1, 2, 3], [3, 2, 0]);
-console.log(result);
+// const result = findIntersection([1, 2, 3], [3, 2, 0]);
+// console.log(result);
 
 /**TASK X
 
