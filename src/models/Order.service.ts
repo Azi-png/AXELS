@@ -32,6 +32,7 @@ class OrderService {
     const amount = input.reduce((accumulator: number, item: OrderItemInput) => {
       return accumulator + item.itemPrice * item.itemQuantity;
     }, 0);
+    //input arrayining reduce methoding callback funksiyani argument sifatida pass qilyapmiz
     const delivery = amount < 100 ? 5 : 0;
 
     try {
@@ -56,6 +57,7 @@ class OrderService {
     orderId: ObjectId,
     input: OrderItemInput[]
   ): Promise<void> {
+    //promisedan hech qanday qiymayt qaytarmaydi
     const promisedList = input.map(async (item: OrderItemInput) => {
       item.orderId = orderId;
       item.productId = shapeIntoMongooseObjectId(item.productId);
