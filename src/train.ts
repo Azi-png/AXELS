@@ -1,4 +1,39 @@
-console.log("Hello world"); /** */ /** */ /** */ /** */ /** */
+console.log("Hello world"); /** */ /** */ /** */ /** */
+
+/**TASK ZB
+
+Shunday function yozing, uni 2 ta number parametri bolsin
+va berilgan sonlar orasidan random raqam return qilsin
+MASALAN: randomBetween(30, 50) return 45
+
+Shunday function yozing, uni 2'ta number parametri bo'lsin.
+Va berilgan sonlar orasidan random raqam returnb qilsin.
+
+MASALAN: randomBetween(30, 50) return 45;
+
+Yuqoridagi misolda, argument sifatida ikkita raqam, '30' va '45'
+berilmoqda, function'ning vazifasi, shu ikkala son orasidan
+random raqamni topib qaytarmoqda. */
+
+let randomSon: any;
+
+function randomBetween(min: number, max: number) {
+  randomSon = Math.floor(Math.random() * (max - min + 1)) + min;
+  console.log("Random son:", randomSon);
+}
+
+function guessNumber(taxmin: number) {
+  if (taxmin === randomSon) {
+    console.log("To'g'ri topdingiz!");
+  } else {
+    console.log("Noto'g'ri, qayta urinib ko'ring.");
+  }
+}
+
+// Dastur ishlashi:
+randomBetween(30, 50); // Masalan, random 45 chiqdi
+guessNumber(40); // Foydalanuvchi 40 deb taxmin qiladi
+
 /**TASK Z
 
 Shunday function yozing. Bu function sonlardan iborat array
@@ -13,21 +48,21 @@ Yuqoridagi misolda, bizning funktsiya
 berilayotgan array tarkibidagi sonlar ichidan faqatgina juft bo'lgan
 sonlarni topib, ularni hisoblab yig'indisini qaytarmoqda. */
 
-function sumEvens(numbers: number[]): number {
-  let sum = 0;
+// function sumEvens(numbers: number[]): number {
+//   let sum = 0;
 
-  for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] % 2 === 0) {
-      sum += numbers[i];
-    }
-  }
+//   for (let i = 0; i < numbers.length; i++) {
+//     if (numbers[i] % 2 === 0) {
+//       sum += numbers[i];
+//     }
+//   }
 
-  return sum;
-}
+//   return sum;
+// }
 
-console.log(sumEvens([1, 2, 3]));
-console.log(sumEvens([1, 2, 3, 2]));
-console.log(sumEvens([10, 15, 20]));
+// console.log(sumEvens([1, 2, 3]));
+// console.log(sumEvens([1, 2, 3, 2]));
+// console.log(sumEvens([10, 15, 20]));
 
 /**TASK Y
 

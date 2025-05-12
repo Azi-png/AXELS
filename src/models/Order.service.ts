@@ -98,6 +98,15 @@ class OrderService {
             as: "productData",
           },
         },
+        {
+          $lookup: {
+            from: "members", //qayerdan
+            foreignField: "_id", // osha borgan collectionimni nimasini olay
+            localField: "memberId", // turgan joyimdagi nima bn solishtray
+
+            as: "memberData", // qaysi nom bn yuboray
+          },
+        },
       ])
       .exec();
 
