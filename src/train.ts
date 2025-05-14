@@ -1,4 +1,26 @@
-console.log("Hello world"); /** */ /** */ /** */ /** */
+console.log("Hello world"); /** */ /** */ /** */
+
+/** TASK ZC
+
+Selisy (°C) shkalasi bo'yicha raqam qabul qilib, uni
+Ferenhayt (°F) shkalisaga o'zgaritib beradigan function yozing.
+
+MASALAN: celsiusToFahrenheit(0) return 32;
+MASALAN: celsiusToFahrenheit(10) return 50;
+
+Yuqoridagi misolda, 0°C, 32°F'ga teng.
+Yoki 10 gradus Selsiy, 50 Farenhaytga teng.
+
+°C va °F => Tempraturani o'lchashda ishlatiladigan o'lchov birligi.*/
+
+function celsiusToFahrenheit(celsius: number): number {
+  let fahrenheit: number = (celsius * 9) / 5 + 32;
+  return fahrenheit;
+}
+
+console.log(celsiusToFahrenheit(0));
+console.log(celsiusToFahrenheit(10));
+console.log(celsiusToFahrenheit(25));
 
 /**TASK ZB
 
@@ -15,24 +37,24 @@ Yuqoridagi misolda, argument sifatida ikkita raqam, '30' va '45'
 berilmoqda, function'ning vazifasi, shu ikkala son orasidan
 random raqamni topib qaytarmoqda. */
 
-let randomSon: any;
+// let randomSon: any;
 
-function randomBetween(min: number, max: number) {
-  randomSon = Math.floor(Math.random() * (max - min + 1)) + min;
-  console.log("Random son:", randomSon);
-}
+// function randomBetween(min: number, max: number) {
+//   randomSon = Math.floor(Math.random() * (max - min + 1)) + min;
+//   console.log("Random son:", randomSon);
+// }
 
-function guessNumber(taxmin: number) {
-  if (taxmin === randomSon) {
-    console.log("To'g'ri topdingiz!");
-  } else {
-    console.log("Noto'g'ri, qayta urinib ko'ring.");
-  }
-}
+// function guessNumber(taxmin: number) {
+//   if (taxmin === randomSon) {
+//     console.log("To'g'ri topdingiz!");
+//   } else {
+//     console.log("Noto'g'ri, qayta urinib ko'ring.");
+//   }
+// }
 
 // Dastur ishlashi:
-randomBetween(30, 50); // Masalan, random 45 chiqdi
-guessNumber(40); // Foydalanuvchi 40 deb taxmin qiladi
+// randomBetween(30, 50);
+// guessNumber(40);
 
 /**TASK Z
 
