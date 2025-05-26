@@ -4,7 +4,7 @@ import { Product } from "./product";
 
 export interface OrderItem {
   _id: ObjectId;
-  itemQuatiy: number;
+  itemQuantity: number;
   itemPrice: number;
   orderId: ObjectId;
   productId: ObjectId;
