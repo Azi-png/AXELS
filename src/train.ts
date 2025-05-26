@@ -1,4 +1,23 @@
-console.log("Hello world"); /**TASK ZF
+console.log("Hello world");
+/* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */
+/* TASK ZG
+
+String sifatida berilgan string parametrni
+snake case'ga o'tkazib beradigan function yozing.
+
+MASALAN: convertToSnakeCase('name should be a string')
+return 'name_should_be_a_string'*/
+
+function convertToSnakeCase(input: string): string {
+  return input
+    .split(" ")
+    .map((word: string) => word.toLowerCase())
+    .join("_");
+}
+
+console.log(convertToSnakeCase("name should be a string"));
+
+/**TASK ZF
 
 
 Shunday function yozing, uni string parametri bo'lsin.
@@ -10,16 +29,16 @@ MASALAN: capitalizeWords('name should be a string'); return 'Name Should be a St
 
 Yuqoridagi misolda, bizning function, uzunligi 2 harfdan katta bo'lgan so'zlarnigina,
 birinchi harfini katta harf bilan qaytarmoqda.  */
-function capitalizeWords(str: string): string {
-  return str
-    .split(" ")
-    .map((word) =>
-      word.length > 2 ? word[0].toUpperCase() + word.slice(1) : word
-    )
-    .join(" ");
-}
+// function capitalizeWords(str: string): string {
+//   return str
+//     .split(" ")
+//     .map((word) =>
+//       word.length > 2 ? word[0].toUpperCase() + word.slice(1) : word
+//     )
+//     .join(" ");
+// }
 
-console.log(capitalizeWords("name should be a string"));
+// console.log(capitalizeWords("name should be a string"));
 
 /**TASK ZE
 
