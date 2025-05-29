@@ -1,5 +1,33 @@
 console.log("Hello world");
-/* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */
+/* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */
+/*TASK ZH
+
+Shunday function yozing, u berilgan array parametri ichidagi
+raqamlar orasidan, tartib bo'yicha eng kichik raqamdan, eng katta raqamgacha
+tushirib qoldirilgan sonlarni o'zinigina topib bir array sifatida qaytarsin.
+  
+MASALAN: findDisappearedNumbers([1, 3, 4, 7]); return [2, 5, 6];
+
+Yuqoridagi misolda, eng katta raqam bu 7 va eng kichik raqam bu 1.
+Function'ning vazifasi berilgan sonlar ichidan tushirib qoldirilgan
+sonlarnigina topib qaytarmoqda. */
+
+function findDisappearedNumbers(nums: number[]): number[] {
+  const result: number[] = [];
+  const minNum = Math.min(...nums);
+  const maxNum = Math.max(...nums);
+
+  for (let i = minNum; i <= maxNum; i++) {
+    if (!nums.includes(i)) {
+      result.push(i);
+    }
+  }
+
+  return result;
+}
+
+console.log(findDisappearedNumbers([1, 3, 4, 7]));
+
 /* TASK ZG
 
 String sifatida berilgan string parametrni
@@ -8,14 +36,14 @@ snake case'ga o'tkazib beradigan function yozing.
 MASALAN: convertToSnakeCase('name should be a string')
 return 'name_should_be_a_string'*/
 
-function convertToSnakeCase(input: string): string {
-  return input
-    .split(" ")
-    .map((word: string) => word.toLowerCase())
-    .join("_");
-}
+// function convertToSnakeCase(input: string): string {
+//   return input
+//     .split(" ")
+//     .map((word: string) => word.toLowerCase())
+//     .join("_");
+// }
 
-console.log(convertToSnakeCase("name should be a string"));
+// console.log(convertToSnakeCase("name should be a string"));
 
 /**TASK ZF
 
