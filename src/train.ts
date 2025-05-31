@@ -1,5 +1,27 @@
-console.log("Hello world");
-/* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */
+// console.log("Hello world");
+/* */ /* */ /* */ /* */ /* */ /* 
+
+*/ /* */ /* */ /* */ /* */
+
+/*TASK ZI
+
+Shundan function yozing, bu function 3 soniydan so'ng
+"Hello World!" so'zini qaytarsin.
+
+MASALAN: delayHelloWorld("Hello World"); return "Hello World"; */
+
+function delayHelloWorld(message: string): Promise<string> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(message);
+    }, 3000);
+  });
+}
+
+delayHelloWorld("Hello World").then((natija) => {
+  console.log(natija);
+});
+
 /*TASK ZH
 
 Shunday function yozing, u berilgan array parametri ichidagi
@@ -12,21 +34,21 @@ Yuqoridagi misolda, eng katta raqam bu 7 va eng kichik raqam bu 1.
 Function'ning vazifasi berilgan sonlar ichidan tushirib qoldirilgan
 sonlarnigina topib qaytarmoqda. */
 
-function findDisappearedNumbers(nums: number[]): number[] {
-  const result: number[] = [];
-  const minNum = Math.min(...nums);
-  const maxNum = Math.max(...nums);
+// function findDisappearedNumbers(nums: number[]): number[] {
+//   const result: number[] = [];
+//   const minNum = Math.min(...nums);
+//   const maxNum = Math.max(...nums);
 
-  for (let i = minNum; i <= maxNum; i++) {
-    if (!nums.includes(i)) {
-      result.push(i);
-    }
-  }
+//   for (let i = minNum; i <= maxNum; i++) {
+//     if (!nums.includes(i)) {
+//       result.push(i);
+//     }
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
-console.log(findDisappearedNumbers([1, 3, 4, 7]));
+// console.log(findDisappearedNumbers([1, 3, 4, 7]));
 
 /* TASK ZG
 
