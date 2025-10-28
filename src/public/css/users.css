@@ -7,29 +7,68 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(-45deg, #110303bf, #e37813, #011c1aba, #968383);
+  background: linear-gradient(
+    45deg,
+    rgba(255, 182, 193, 0.7),
+    rgba(144, 238, 144, 0.7)
+  );
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Link umumiy stil */
 .users-container a {
   text-decoration: none;
-  color: #000000;
+  color: #222;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-.users-container .nav-item a {
-  color: #e3c08d;
-}
-
-.users-container .nav-item a.disabled {
-  color: #898071;
-}
-
+/* Navigation menu - products bilan bir xil */
 .users-container .navigation-menu {
   position: absolute;
-  z-index: 10000;
-  top: 1%;
-  color: #efefee;
-  font-size: 40px;
-  font-family: monospace;
+  top: 0;
+
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+  padding: 15px 0 15px 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-bottom: 2px solid #228b22;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  font-weight: 600;
+  color: #222;
+  z-index: 1000;
+}
+
+/* Nav items hover */
+.users-container .navigation-menu a:hover {
+  color: #228b22;
+  transform: translateY(-2px);
+}
+
+/* Disabled links */
+.users-container .nav-item a.disabled {
+  color: #898071;
+  pointer-events: none;
+}
+
+/* Responsive: ekran kichik bo'lsa, nav vertical */
+@media (max-width: 768px) {
+  .users-container .navigation-menu {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    font-size: 18px;
+    right: 50%;
+    transform: translateX(50%);
+  }
 }
 
 .users-container .users-frame {
@@ -37,7 +76,6 @@
   padding-bottom: 80px;
   width: 100%;
   height: auto;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,7 +91,7 @@
   align-items: center;
 }
 
-.users-container .board .dishes-table {
+.users-container .board .products-table {
   position: relative;
   width: 100%;
   height: auto;
@@ -79,7 +117,7 @@
   font-weight: 400;
   font-size: 30px;
   line-height: 25px;
-  color: #ffffff;
+  color: black;
 }
 
 .users-container select:focus {
@@ -90,7 +128,6 @@
 .users-container .spec-select {
   position: relative;
   padding: 0px 7px;
-  /*width: 100%;*/
   height: 27px;
   background: #ffffff;
   border: 1px solid #dddddd;

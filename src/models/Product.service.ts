@@ -5,6 +5,7 @@ import {
   Product,
   ProductInput,
   ProductInquiry,
+  ProductListResponse,
   ProductUpdateInput,
 } from "../libs/types/product";
 import ProductModel from "../schema/Product.model";
@@ -23,8 +24,16 @@ class ProductService {
     this.viewService = new ViewService();
   }
   /**SPA */
-  public async getProducts(inquiry: ProductInquiry): Promise<Product[]> {
-    const match: T = { productStatus: ProductStatus.PROCESS };
+  public async getProducts(
+    inquiry: ProductInquiry
+  ): Promise<ProductListResponse> {
+    const match: T = {
+      productStatus: ProductStatus.PROCESS,
+      productPrice: {
+        $gte: inquiry.minPrice ?? 0,
+        $lte: inquiry.maxPrice ?? 9900,
+      },
+    };
 
     if (inquiry.productCollection) {
       match.productCollection = inquiry.productCollection;
@@ -32,23 +41,61 @@ class ProductService {
     if (inquiry.search) {
       match.productName = { $regex: new RegExp(inquiry.search, "i") };
     }
+    if (inquiry.material) {
+      match.productMaterial = inquiry.material;
+    }
+    const [products, priceStats, count] = await Promise.all([
+      this.productModel
+        .aggregate([
+          { $match: match },
+          {
+            $sort: {
+              [inquiry.order]: inquiry.order === "productPrice" ? 1 : -1,
+            },
+          },
+          { $skip: (inquiry.page - 1) * inquiry.limit },
+          { $limit: inquiry.limit },
+        ])
+        .exec(),
+
+      this.productModel
+        .aggregate([
+          { $match: { productStatus: ProductStatus.PROCESS } },
+          {
+            $group: {
+              _id: null,
+              minPrice: { $min: "$productPrice" },
+              maxPrice: { $max: "$productPrice" },
+            },
+          },
+        ])
+        .exec(),
+
+      this.productModel.countDocuments(match),
+    ]);
 
     const sort: T =
       inquiry.order === "productPrice"
         ? { [inquiry.order]: 1 }
         : { [inquiry.order]: -1 };
 
-    const result = await this.productModel
-      .aggregate([
-        { $match: match },
-        { $sort: sort },
-        { $skip: (inquiry.page * 1 - 1) * inquiry.limit },
-        { $limit: inquiry.limit * 1 },
-      ])
-      .exec();
-    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+    // const result = await this.productModel
+    //   .aggregate([
+    //     { $match: match },
+    //     { $sort: sort },
+    //     { $skip: (inquiry.page * 1 - 1) * inquiry.limit },
+    //     { $limit: inquiry.limit * 1 },
+    //   ])
+    //   .exec();
+    if (!products) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+    return {
+      products,
+      minPrice: priceStats[0]?.minPrice ?? 0,
+      maxPrice: priceStats[0]?.maxPrice ?? 9900,
+      totalCount: count,
+    };
 
-    return result;
+    // return result;
   }
 
   public async getProduct(

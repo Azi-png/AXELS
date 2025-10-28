@@ -3,7 +3,7 @@ console.log("Products frontend javascript file");
 $(function () {
   $(".product-collection").on("change", () => {
     const selectedValue = $(".product-collection").val();
-    if (selectedValue === "DRINK") {
+    if (selectedValue === "RING") {
       $("#product-collection").hide();
       $("#product-volume").show();
     } else {
@@ -13,12 +13,12 @@ $(function () {
   });
 
   $("#process-btn").on("click", () => {
-    $(".dish-container").slideToggle(500);
+    $(".product-container").slideToggle(500);
     $("#process-btn").css("display", "none");
   });
 
   $("#cancel-btn").on("click", () => {
-    $(".dish-container").slideToggle(100);
+    $(".product-container").slideToggle(100);
     $("#process-btn").css("display", "flex");
   });
 

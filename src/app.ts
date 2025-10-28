@@ -10,6 +10,11 @@ import session from "express-session"; // session yaratadi
 import ConnectMongoDB from "connect-mongodb-session"; //sessionlarni dbga saqlaydi
 import { T } from "./libs/types/common";
 
+import { Server as SocketIOServer } from "socket.io";
+import http from "http";
+import { OAuth2Client } from "google-auth-library";
+import AuthService from "./models/Auth.service";
+
 const MongoDBStore = ConnectMongoDB(session); // "connect-mongodb-session" ichida ConnectMongoDB funksiyasi bor unga  "express-session"ni argument sifatida pass qilib MongoDBStore ga tenglaymiz.
 /* ConnectMongoDB(session) – klassni qaytaruvchi funksiya. Bu funksiya express-session bilan ishlay oladigan MongoDB sessiya do‘konini yaratadi.
 Natijada MongoDBStore o‘zgaruvchisi hosil bo‘ladi
@@ -29,7 +34,7 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: true, 
+    origin: true,
   })
 );
 app.use(cookieParser());
@@ -60,4 +65,23 @@ app.set("view engine", "ejs");
 app.use("/admin", routerAdmin); //BSSR: EJS
 app.use("/", router); //SPA: REACT
 
-export default app;
+const server = http.createServer(app);
+const io = new SocketIOServer(server, {
+  cors: {
+    origin: true,
+    credentials: true,
+  },
+});
+
+let summaryClient = 0;
+io.on("connection", (socket) => {
+  summaryClient++;
+  console.log(`Connection & total [${summaryClient}]`);
+
+  socket.on("disconnect", () => {
+    summaryClient--;
+    console.log(`Disconnection & total [${summaryClient}]`);
+  });
+});
+
+export default server;

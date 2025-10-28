@@ -4,6 +4,7 @@
 
 <body>
   <div class="signup-container">
+    <img src="/img/2.png" alt="signup image" class="signup-left-img" />
     <form
       onsubmit="return validateSignupForm()"
       action="/admin/signup"
@@ -22,7 +23,7 @@
 
         <div class="sign-input-frame" style="justify-content: space-between">
           <div class="sign-up-frame">
-            <label>Restaurant *</label>
+            <label>Jewelry Admin *</label>
             <input
               type="text"
               name="memberNick"
@@ -67,7 +68,7 @@
 
         <div class="signup-input-frame">
           <div class="media-frame">
-            <img class="upload-img-frame" src="/img/default.jpeg" />
+            <img class="upload-img-frame" src="/img/4.jpg" />
             <div class="upload-container">
               <span class="media-text">Product image</span>
               <div
@@ -90,7 +91,7 @@
                 />
               </div>
               <p class="thumbnail-desc">
-                Please upload restaurant image.<br />
+                Please upload jewelry store image.<br />
                 Attention only:.jpg, .jpeg, or .png. <br />
                 formats allowed!
               </p>
@@ -100,9 +101,7 @@
 
         <input name="memberType" value="RESTAURANT" hidden />
 
-        <button class="signup-btn btn" name="signup" type="submit">
-          Signup
-        </button>
+        <button class="signup-btn" name="signup" type="submit">Signup</button>
       </div>
     </form>
   </div>

@@ -4,7 +4,7 @@ import { T } from "../libs/types/common";
 import ProductService from "../models/Product.service";
 import { AdminRequest, ExtendedRequest } from "../libs/types/member";
 import { ProductInput, ProductInquiry } from "../libs/types/product";
-import { ProductCollection } from "../libs/enums/product.enum";
+import { ProductCollection, ProductMaterial } from "../libs/enums/product.enum";
 
 const productService = new ProductService();
 
@@ -14,7 +14,16 @@ const productController: T = {};
 productController.getProducts = async (req: Request, res: Response) => {
   try {
     console.log("getProducts");
-    const { page, limit, order, productCollection, search } = req.query;
+    const {
+      page,
+      limit,
+      order,
+      productCollection,
+      search,
+      minPrice,
+      maxPrice,
+      material,
+    } = req.query;
     const inquiry: ProductInquiry = {
       order: String(order),
       page: Number(page),
@@ -24,6 +33,17 @@ productController.getProducts = async (req: Request, res: Response) => {
       inquiry.productCollection = productCollection as ProductCollection;
     }
     if (search) inquiry.search = String(search);
+
+    if (minPrice) {
+      inquiry.minPrice = Number(minPrice);
+    }
+    if (maxPrice) {
+      inquiry.maxPrice = Number(maxPrice);
+    }
+    if (material) {
+      inquiry.material = material as ProductMaterial;
+      // Agar enum faqat katta harfda bo‘lsa
+    }
 
     const result = await productService.getProducts(inquiry);
 

@@ -1,12 +1,13 @@
 {
   "name": "burak",
   "version": "1.0.0",
-  "description": "This is burak project backend",
+  "description": "This is axels project backend",
   "main": "src/server.ts",
   "scripts": {
     "start": "ts-node src/server.ts",
     "start:dev": "nodemon --exec ts-node src/server.ts",
-    "build": "tsc",
+    "build": "tsc && node extra.js",
+    "start:prod": "node dist/server.js",
     "train": "nodemon --exec ts-node src/train.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,12 +22,15 @@
     "ejs": "^3.1.6",
     "express": "^4.17.3",
     "express-session": "^1.17.3",
+    "fs-extra": "^11.1.1",
+    "google-auth-library": "^10.2.1",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.4",
     "mongodb": "^3.2.6",
     "mongoose": "^6.2.9",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
+    "socket.io": "^4.8.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -40,6 +44,7 @@
     "@types/morgan": "^1.9.9",
     "@types/multer": "^1.4.12",
     "@types/node": "^22.13.10",
+    "@types/socket.io": "^3.0.2",
     "@types/uuid": "^10.0.0",
     "nodemon": "^3.0.2",
     "ts-node": "^10.9.1",

@@ -1,9 +1,9 @@
 import mongoose, { Schema } from "mongoose";
 import {
   ProductCollection,
-  ProductSize,
+  ProductMaterial,
   ProductStatus,
-  ProductVolume,
+  ProductSize,
 } from "../libs/enums/product.enum";
 
 const productSchema = new Schema(
@@ -30,15 +30,15 @@ const productSchema = new Schema(
       type: Number,
       required: true,
     },
+    productMaterial: {
+      type: String,
+      enum: ProductMaterial,
+      default: ProductMaterial.GOLD,
+    },
     productSize: {
       type: String,
       enum: ProductSize,
-      default: ProductSize.NORMAL,
-    },
-    productVolume: {
-      type: Number,
-      enum: ProductVolume,
-      default: ProductVolume.ONE,
+      default: ProductSize.XS,
     },
     productDesc: {
       type: String,
@@ -56,7 +56,7 @@ const productSchema = new Schema(
 );
 
 productSchema.index(
-  { productName: 1, productSize: 1, productVolume: 1 },
+  { productName: 1, ProductMaterial: 1, ProductSize: 1 },
   { unique: true }
 );
 
